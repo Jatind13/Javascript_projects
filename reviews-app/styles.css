@@ -113,8 +113,9 @@ main{
   #job {
     margin-bottom: 0.5rem;
     text-transform: uppercase;
-    color: black;
+    color: rgb(174, 31, 164);
     font-size: 0.85rem;
+    font-weight: 900;
   }
   #info {
     margin-bottom: 0.75rem;
