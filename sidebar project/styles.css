@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap');
+
+/* -------------Global Styles */
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Rubik',snas-serif;
+    background: rgb(239, 233, 233);
+    color:black;
+    line-height: 1.5;
+    font-size: 0.875rem;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+
+/* ===================================
+SIDEBAR
+====================================== */
+.sidebar-toggle{
+    position:fixed;
+    top: 2rem;
+    right:3rem;
+    font-size: 2rem;
+    background: transparent;
+    border-color: transparent;
+    color:aqua;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    animation: bounce 2s ease-in-out infinite;
+}
+.sidebar-toggle:hover{
+    color:burlywood;
+}
+
+@keyframes bounce{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.sidebar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+.close-btn {
+    font-size: 1.75rem;
+    background: transparent;
+    border-color: transparent;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    color: darkred;
+  }
+  .close-btn:hover {
+    color: red;
+    transform: rotate(360deg);
+  }
+  .logo {
+    justify-self: center;
+        height: 40px;
+  }
+  .links a {
+    display: block;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    padding: 1rem 1.5rem;
+    color: grey;
+    transition: all 0.3s linear;
+  }
+  .links a:hover {
+    background: rgb(211, 154, 154);
+    color: rgb(34, 90, 118);
+    padding-left: 1.75rem;
+  }
+  .social-icons {
+    justify-self: center;
+    display: flex;
+    padding-bottom: 2rem;
+  }
+  .social-icons a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    color: rgb(15, 15, 15);
+    transition: all 0.3s linear;
+  }
+  .social-icons a:hover {
+    color: rgb(12, 69, 168);
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    row-gap: 1rem;
+    box-shadow: 0 5px 15px darkred;
+    transition: all 0.3s linear;
+    transform: translate(-100%);
+  }
+  .show-sidebar {
+    transform: translate(0);
+  }
+  @media screen and (min-width: 676px) {
+    .sidebar {
+      width: 400px;
+    }
+  }
