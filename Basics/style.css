@@ -1,0 +1,5 @@
+body{
+background: linear-gradient(to left bottom,rgba(125,23,122,0.6),rgba(34,56,125,0.5));
+text-align: center;
+max-height: 100vh;
+}
