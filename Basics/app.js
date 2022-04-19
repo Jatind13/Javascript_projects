@@ -18,3 +18,11 @@ const styles = [
 
 console.log("%c Hello There", styles);
 //%c applies the styles to the following text
+
+const daysFromNow = (n) => {
+  let d = new Date();
+  d.setDate(d.getDate() + Math.abs(n));
+  return d.toISOString().split("T")[0];
+};
+
+console.log(daysFromNow(5));
