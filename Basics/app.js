@@ -222,3 +222,9 @@ population > 33
 // };
 
 // console.log(daysFromNow(5));
+
+// A code snippet to capitalize every word in a sentence
+const capitalizeEveryWord = (str) =>
+  str.replace(/\b[a-z]/g, (char) => char.toUpperCase());
+
+capitalizeEveryWord("hello world"); //Helloe World
