@@ -1,0 +1,171 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,400&family=Rubik:ital,wght@0,400;1,300&family=Secular+One&family=Updock&display=swap");
+
+/* font-family: 'Poppins', sans-serif;
+font-family: 'Rubik', sans-serif;
+font-family: 'Secular One', sans-serif;
+font-family: 'Updock', cursive; */
+
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* global styles */
+body {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  line-height: 2rem;
+  background-image: linear-gradient(
+    to top left,
+    rgb(211, 45, 222, 0.5),
+    rgb(220, 46, 127, 0.3)
+  );
+}
+
+/* let's first style both the section of palyers data to see it more clearly i am drawing a border around*/
+
+/* give the display flex to bring player 1 dice palyer 2 in a row */
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 200px 1fr;
+  grid-gap: 20px;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+/* span the players to both teh rows */
+
+.player {
+  border: 2px solid black;
+  grid-row: span 3;
+  background-image: linear-gradient(180deg, rgb(28, 240, 211), rgb(2, 28, 27));
+  margin: 20px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 2.5rem;
+  border-radius: 3rem;
+}
+
+/* lets center the dice in between palyers */
+
+img {
+  height: 200px;
+  width: 200px;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column: 2 / span 1;
+}
+
+/* player name */
+.playerName {
+  text-align: center;
+  margin: 20px 20px;
+}
+/* centering the scores */
+.score {
+  text-align: center;
+  margin: 7rem;
+}
+
+.currentScore {
+  padding: 20px;
+  margin: 250px 5px 0 5px;
+  background-color: rgba(161, 98, 177, 0.5);
+  border-radius: 2.5rem;
+  font-size: 2.25rem;
+  letter-spacing: 2px;
+  box-shadow: 5px 15px 4px black;
+}
+
+h4 {
+  text-align: center;
+}
+.current {
+  text-align: center;
+}
+
+/*============================
+Buttons
+============================= */
+.buttons {
+  text-align: center;
+}
+.btn {
+  font-size: large;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: black;
+  color: azure;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px whitesmoke;
+  transition: all 0.3s linear;
+}
+.btn:hover {
+  background-color: transparent;
+}
+/* ===============================
+Make it responsive
+==================================
+ */
+
+@media screen and (max-width: 870px) {
+  body {
+    background-color: black;
+  }
+  .wrapper {
+    grid-template-columns: 300px;
+    grid-template-rows: 100px 100px 1fr;
+  }
+  .player {
+    grid-row: 2 / span 1;
+  }
+  .playerName {
+    font-size: medium;
+    margin: 12px;
+  }
+
+  .buttons {
+    margin: 100px 100px;
+    margin-left: 33%;
+  }
+}
+@media all and (max-width: 480px) {
+  body {
+    background-color: aqua;
+  }
+  .wrapper {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  #dice {
+    align-self: center;
+    width: 50px;
+    height: 50px;
+  }
+  .player {
+    padding: 10px;
+    font-size: 2rem;
+    margin: 10px;
+  }
+  .buttons {
+    margin-top: -750px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .btn {
+    margin: 0 5px;
+    flex-grow: 1;
+  }
+  .currentScore {
+    margin: 30px 10px 0 10px;
+    font-size: medium;
+  }
+}
