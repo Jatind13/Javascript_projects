@@ -12,32 +12,34 @@
   <body>
     <div class="wrapper">
       <!-- Player1 data -->
-      <section class="player player1">
+      <section class="player player--0 player--active player1">
         <h1 class="playerName">player1</h1>
-        <span class="score score1">4</span>
+        <span class="score score1" id="score--0">4</span>
         <div class="currentScore">
           <h4>Current</h4>
-          <p class="current">11</p>
+          <p class="current currentScore1" id="current--0">11</p>
         </div>
       </section>
       <!-- Dice -->
-      <img src="/Images/dice6.png" id="dice" alt="this is a dice image" />
+      <img src="/Images/dice6.png" class="dice" alt="this is a dice image" />
 
       <!-- Player2 -->
-      <section class="player player2">
+      <section class="player player--1 player2">
         <h1 class="playerName">player2</h1>
-        <span class="score score2">4</span>
+        <span class="score score2" id="score--1">4</span>
         <div class="currentScore">
           <h4>Current</h4>
-          <p class="current">32</p>
+          <p class="current currentScore2" id="current--1">32</p>
         </div>
       </section>
     </div>
     <!-- Buttons -->
     <div class="buttons">
-      <button type="button" class="btn newGame">🆕game</button>
-      <button type="button" class="btn rollDice">🎲roll dice</button>
-      <button type="button" class="btn holdScore">🤞🏻hold score</button>
+      <button type="button" class="btn newGame btn--new">🆕game</button>
+      <button type="button" class="btn rollDice btn--roll">🎲roll dice</button>
+      <button type="button" class="btn holdScore btn--hold">
+        🤞🏻hold score
+      </button>
     </div>
 
     <!-- Javascript -->

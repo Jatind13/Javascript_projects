@@ -50,6 +50,23 @@ body {
   font-size: 3rem;
   line-height: 2.5rem;
   border-radius: 3rem;
+  text-align: center;
+}
+/* toggle classList to show the active player */
+.player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+}
+.player--active .name {
+  font-weight: 700;
+  text-align: center;
+}
+.player--active .score {
+  font-weight: 400;
+}
+
+.player--active .current {
+  opacity: 1;
 }
 
 /* lets center the dice in between palyers */
@@ -60,6 +77,10 @@ img {
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column: 2 / span 1;
+}
+/* this hidden class is for hiding  the dice when conditions are hidden */
+.hidden {
+  visibility: hidden;
 }
 
 /* player name */
@@ -168,4 +189,15 @@ Make it responsive
     margin: 30px 10px 0 10px;
     font-size: medium;
   }
+}
+
+/* active player who wins */
+
+.player--winner {
+  background-color: #2f2f2f;
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #c7365f;
 }
