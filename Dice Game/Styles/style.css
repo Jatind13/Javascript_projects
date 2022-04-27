@@ -43,7 +43,7 @@ body {
 .player {
   border: 2px solid black;
   grid-row: span 3;
-  background-image: linear-gradient(180deg, rgb(28, 240, 211), rgb(2, 28, 27));
+  background-color: rgba(28, 240, 211, 0.3);
   margin: 20px;
   color: rgb(0, 0, 0);
   font-weight: 600;
@@ -52,12 +52,13 @@ body {
   border-radius: 3rem;
   text-align: center;
 }
+
 /* toggle classList to show the active player */
 .player--active {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-image: linear-gradient(180deg, rgb(28, 240, 211), rgb(2, 28, 27));
   text-align: center;
 }
-.player--active .name {
+.player--active .playerName {
   font-weight: 700;
   text-align: center;
 }
@@ -141,10 +142,17 @@ Make it responsive
   }
   .wrapper {
     grid-template-columns: 300px;
-    grid-template-rows: 100px 100px 1fr;
+    grid-template-rows: 1fr 100px 1fr;
   }
   .player {
     grid-row: 2 / span 1;
+  }
+  img {
+    justify-self: center;
+    height: 60px;
+    width: 60px;
+    grid-row: 5 / span -1;
+    grid-column: 2 / 3;
   }
   .playerName {
     font-size: medium;
@@ -152,8 +160,12 @@ Make it responsive
   }
 
   .buttons {
-    margin: 100px 100px;
-    margin-left: 33%;
+    display: flex;
+    margin: 453px 217px;
+    flex-direction: column;
+  }
+  .btn {
+    padding: 10px;
   }
 }
 @media all and (max-width: 480px) {
@@ -166,10 +178,10 @@ Make it responsive
     flex-direction: column;
     justify-content: space-evenly;
   }
-  #dice {
+  img {
     align-self: center;
-    width: 50px;
     height: 50px;
+    width: 50px;
   }
   .player {
     padding: 10px;
@@ -177,13 +189,15 @@ Make it responsive
     margin: 10px;
   }
   .buttons {
-    margin-top: -750px;
+    margin-top: -765px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: center;
   }
   .btn {
     margin: 0 5px;
-    flex-grow: 1;
+    flex-grow: 3;
+    padding: 5px;
   }
   .currentScore {
     margin: 30px 10px 0 10px;
@@ -194,7 +208,7 @@ Make it responsive
 /* active player who wins */
 
 .player--winner {
-  background-color: #2f2f2f;
+  background-color: #c33838;
 }
 
 .player--winner .name {
