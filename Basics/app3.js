@@ -29,3 +29,17 @@ const arr1 = [1, 2, 3, [4, 5, 6]];
 console.log(i, j);
 [i, , j, [k, l]] = arr1;
 console.log(i, j, k);
+
+// Change the lightness of the color
+const changeLightness = (delta, hslStr) => {
+  const [hue, saturation, lightness] = hslStr.match(/\d+/g).map(Number);
+
+  const newLightness = Math.max(
+    0,
+    Math.min(100, lightness + parseFloat(delta))
+  );
+
+  return `hsl(${hue}, ${saturation}%, ${newLightness}%)`;
+};
+changeLightness(10, "hsl(330, 50%, 50%)"); // 'hsl(330, 50%, 60%)'
+changeLightness(-10, "hsl(330, 50%, 50%)"); // 'hsl(330, 50%, 40%)'
