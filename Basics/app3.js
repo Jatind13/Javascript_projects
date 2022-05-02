@@ -43,3 +43,21 @@ const changeLightness = (delta, hslStr) => {
 };
 changeLightness(10, "hsl(330, 50%, 50%)"); // 'hsl(330, 50%, 60%)'
 changeLightness(-10, "hsl(330, 50%, 50%)"); // 'hsl(330, 50%, 40%)'
+
+// Bubble Soritng in JS
+const bubbleSort = (arr) => {
+  let swapped = false; //this variable is to check that if any value is swapped in the iteration
+  const a = [...arr]; //spread operator for clonning the array
+  for (let i = 1; i < a.length; i++) {
+    swapped = false;
+    for (let j = 0; j < a.length - i; j++) {
+      if (a[j + 1] < a[j]) {
+        [a[j], a[j + 1]] = [a[j + 1], a[j]]; //swapping values using Array Destructuring
+        swapped = true;
+      }
+    }
+    if (!swapped) return a; //if at any iteration the values are not swapped means array is sorted.
+  }
+  return a;
+};
+bubbleSort([20, 10, 40, 30]); // [10, 20, 30, 40]
