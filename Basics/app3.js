@@ -1,17 +1,88 @@
 // Destructuring in Javascript
+//
 const arr = [1, 2, 3];
 const [x, y, z] = arr;
 console.log(x, y, z);
 
+const workingHours = {
+  thu: {
+    wake: 5,
+    sleep: 11,
+  },
+  fri: {
+    wake: 6,
+    sleep: 7,
+  },
+  sat: {
+    wake: 9,
+    sleep: 2,
+  },
+};
 const me = {
-  name: "Jatin",
+  Myname: "Jatin",
   hobbies: ["Reading", "Coding", "Playing", "Writing"],
   colors: ["red", "green", "yellow", "black"],
   color: function (ind1, ind2) {
     return [this.colors[ind1], this.colors[ind2]];
   },
+  works: function (obj) {
+    console.log(obj);
+  },
+  // foodDelivery: function (object) {
+  //   console.log(object);
+  // },
+  //here when we are destructuring the object then parameters order don't matter
+  orderDelivery({ ind1, ind2, time, address }) {
+    console.log(
+      `Order received! ${this.hobbies[ind1]} and ${this.colors[ind2]} will be delivered to ${address} at ${time}`
+    );
+  },
 };
 
+me.orderDelivery({
+  time: "10:30",
+  address: "Garhi Road",
+  ind1: 2,
+  ind2: 3,
+});
+///////////////////////////////////////////////////////////
+//Destructuring in Objects/////////////////////////////
+const { hobbies, colors, Myname } = me;
+console.log(hobbies, colors, Myname);
+
+//we can change the property names also
+const { hobbies: MyHobbies, colors: MyColors, Myname: fname } = me;
+console.log(MyHobbies, MyColors, fname);
+
+//we can also give default values to the varaiable which are not defined yet this helps us in case of API's
+const {
+  lname = [], //here lname is handled an will not give us undefined
+  colors: MyColor = [], //colors will pick the value from object only because it is already declared
+} = me;
+console.log(lname, colors);
+// Mutating or swapping of variables
+let a = 111;
+let b = 45;
+const obj = { a: 23, b: 7, c: 17 };
+// const {a,b}=obj;   not allowed
+//let {a,b}=obj;  not allowed(Cannot redeclare block-scoped variable 'a'.ts(2451)
+//Cannot redeclare block-scoped variable 'b'.)
+
+// ---------for mutating see below-------------
+({ a, b } = obj); //since JS sees curly braces as block of code so we have to handle bt capturing whole thing inside brackets.
+console.log(a, b);
+// ----------------Nested Objects---------------
+// const { fri } = workingHours;
+// console.log(fri);
+const {
+  fri: { wake: w, sleep: s },
+} = workingHours;
+console.log(w, s);
+
+// -----------------handling parameters while destructuring------
+me.works(workingHours);
+// ////////////////////////////////////////////////////
+/////Destructuring in Arrays/////////////////////////
 const [hobby1, hobby2] = me.hobbies;
 console.log(hobby1, hobby2);
 
