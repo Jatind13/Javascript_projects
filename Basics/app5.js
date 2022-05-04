@@ -1,0 +1,90 @@
+"use strict";
+const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
+const restaurant = {
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Firenze, Italy",
+  categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+  // ES6 enhanced object literals
+  openingHours,
+
+  order(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = "20:00", address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and 
+      ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+
+  orderPasta(ing1, ing2, ing3) {
+    console.log(
+      `Here is your declicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
+
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
+};
+/////////////////////////////////////////
+//Rest pattern and Parameters
+//1)Destructuring
+//When used to the right side of = opertor than it's basically the spread operator
+// Spread->Unpacks the given arrays
+const arr = [1, 2, ...[3, 4]];
+console.log(arr);
+
+// REST is on  the left side of equal to operator
+const [a, b, ...others] = [1, 2, 3, 4, 5, 6, 7];
+console.log(a, b, others);
+
+const [p, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+//spread operator does not includes the missed values like in this case 'Pizza'
+console.log(p, risotto, otherFood);
+
+// Let's play with Objects also
+const { sat, ...boringdays } = restaurant.openingHours;
+console.log(sat, weekdays);
+
+//2)functions
+// we can give any number values to it and every time it will work totally amazing
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x); //this is unpacking the values from array and then sending to the add function.
+
+restaurant.orderPizza("cheese", "onion", "olives", "white sauce", "chicken");
