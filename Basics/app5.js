@@ -88,3 +88,66 @@ const x = [23, 5, 7];
 add(...x); //this is unpacking the values from array and then sending to the add function.
 
 restaurant.orderPizza("cheese", "onion", "olives", "white sauce", "chicken");
+
+////////////////////////////////////////////////////////////
+///Short Ciurcuting in JS
+
+// till now we used logical operartors only for returing boolean values
+console.log(0 || 1);
+//but let's use for their full potential
+console.log(3 || "jatin");
+//so that means that the results of the OR operator doesn't always have to be a Boolean.
+//So there are three properties about logical operators
+//i.they can use any data type.
+//ii.They can return any data type
+//iii.and they do something called short circuiting or as we also call it short circuit evaluation.
+
+//so in the above case we fave values which are not boolean and || operatorn returned the non boolean value now what is short cuircuting in || operator
+//In case og OR operator short circuiting means that if the first value is a truthy value,it will immediately return that first value
+//OR operator returs out first truthy values
+console.log(true || 0); //true
+console.log("" || "jatin"); //jatin
+console.log(undefined || null); //null
+
+console.log(undefined || 0 || "" || "Hello" || 23 || null);
+//here we are checking that if numGuests property exist then return than else give it a value of 10
+// restaurant.numGuests = 0;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
+
+// // easy way to do the above task
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
+
+console.log("---- AND ----");
+//now AND operator is just opposite of OR it return the first falsy value and if not any then returns the last value.
+console.log(0 && "Jonas"); //0
+console.log(7 && "Jonas"); //jonas
+
+console.log("Hello" && 23 && null && "jonas"); //null
+
+// Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushrooms", "spinach");
+}
+//above code can also be written as :-
+//if orderPizza property existts then it will execute the next function otherwise not.
+restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
+
+/////////////////////////////////////////////
+///Nullish Coalescing Operator
+//when we are doing the below task using || short circuting it is showing some not expected values
+restaurant.numGuests = 0;
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+//so what we want is when guest is not defined than it should not return 10; so to handle that situation we have Nullish coalescing operator which totally looks a like of OR operator
+
+// Nullish: null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+//So why does this work?
+// Well, it is because the nullish coalescing operator
+// works with the idea or with the concept
+// of nullish values instead of falsy values.
+// And nullish values are null
+// and undefined. so for this operator zero is not a falsy value so it returns teh first truthy value.
