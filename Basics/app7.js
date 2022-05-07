@@ -102,3 +102,14 @@ console.log(users[0]?.name ?? "User array empty");
 //if we dont have optional chaining then we woild do it like this which is alot of code.
 if (users.length > 0) console.log(users[0].name);
 else console.log("user array empty");
+
+////////Detect Device type
+const detectDeviceType = () =>
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+    ? "Mobile"
+    : "Desktop";
+
+///////
+console.log(detectDeviceType()); // 'Mobile' or 'Desktop'
