@@ -77,23 +77,36 @@
 // console.log(curDate.toLocaleString());
 
 ////////////Time Methods//////////////////////
-const curTime = new Date();
+// const curTime = new Date();
 
 // how to get the indivisual Time
 
-console.log(curTime.getTime());
+// console.log(curTime.getTime());
 // // // The getTime() method returns the number of milliseconds
 // // since January 1, 1970
-console.log(curTime.getHours());
+// console.log(curTime.getHours());
 // // // The getHours() method returns the hours of a date as a
 // // number (0-23)
-console.log(curTime.getMinutes());
-console.log(curTime.getSeconds());
-console.log(curTime.getMilliseconds());
+// console.log(curTime.getMinutes());
+// console.log(curTime.getSeconds());
+// console.log(curTime.getMilliseconds());
 //----------------------------------------
 // // how to set the individual Time
-console.log(curTime.setTime());
-console.log(curTime.setHours(5));
-console.log(curTime.setMinutes(5));
-console.log(curTime.setSeconds(5));
-console.log(curTime.setMilliseconds(5));
+// console.log(curTime.setTime());
+// console.log(curTime.setHours(5));
+// console.log(curTime.setMinutes(5));
+// console.log(curTime.setSeconds(5));
+// console.log(curTime.setMilliseconds(5));
+
+//
+// (function () {
+//   setInterval(() => {
+//     console.log(new Date().toLocaleTimeString());
+//   }, 1000);
+// })();
+
+const filterUnique = (arr) =>
+  [...new Set(arr)].filter((i) => arr.indexOf(i) !== arr.lastIndexOf(i));
+filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
+
+//Creates an array with the unique values filtered out.
