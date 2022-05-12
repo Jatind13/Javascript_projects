@@ -110,3 +110,7 @@ const filterUnique = (arr) =>
 filterUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 //Creates an array with the unique values filtered out.
+
+//this is how you reverse the string using spread operator
+const reverseString = (str) => [...str].reverse().join("");
+reverseString("foobar"); // 'raboof'
