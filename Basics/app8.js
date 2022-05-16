@@ -149,3 +149,11 @@ const shuffle = ([...arr]) => {
 
 const foo = [1, 2, 3];
 shuffle(foo); // [2, 3, 1], foo = [1, 2, 3]
+
+//Detect language
+const detectLanguage = (defaultLang = "en-US") =>
+  navigator.language ||
+  (Array.isArray(navigator.languages) && navigator.languages[0]) ||
+  defaultLang;
+
+console.log(detectLanguage()); // 'nl-NL')
