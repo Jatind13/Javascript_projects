@@ -175,3 +175,13 @@ const filterNonUnique = (arr) =>
   [...new Set(arr)].filter((i) => arr.indexOf(i) === arr.lastIndexOf(i));
 
 filterNonUnique([1, 2, 2, 3, 4, 4, 5]); // [1, 3, 5]
+
+/*Gets the Unix timestamp from a Date object.
+
+Use Date.prototype.getTime() to get the timestamp in milliseconds and divide by 1000 to get the timestamp in seconds.
+Use Math.floor() to appropriately round the resulting timestamp to an integer.
+Omit the argument, date, to use the current date. */
+
+const getTimestamp = (date = new Date()) => Math.floor(date.getTime() / 1000);
+
+getTimestamp(); // 1602162242
