@@ -165,3 +165,13 @@ Use Math.PI and the degree to radian formula to convert the angle from degrees t
 const degreesToRads = (deg) => (deg * Math.PI) / 180.0;
 
 degreesToRads(90.0); // ~1.5708
+
+/*Creates an array with the non-unique values filtered out.
+
+Use the Set constructor and the spread operator (...) to create an array of the unique values in arr.
+Use Array.prototype.filter() to create an array containing only the unique values. */
+
+const filterNonUnique = (arr) =>
+  [...new Set(arr)].filter((i) => arr.indexOf(i) === arr.lastIndexOf(i));
+
+filterNonUnique([1, 2, 2, 3, 4, 4, 5]); // [1, 3, 5]
